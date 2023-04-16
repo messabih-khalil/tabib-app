@@ -29,6 +29,7 @@ const userSchema = mongoose.Schema({
   role: {
     type: String,
     enum: ['user', 'doctor', 'admin'],
+    default: 'user',
   },
 });
 
@@ -51,7 +52,6 @@ userSchema.methods.correctPassword = async function (
 ) {
   return await bcrypt.compare(requestPassword, userPassword);
 };
-
 
 // * Create User Model from User Schema
 
