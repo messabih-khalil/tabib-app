@@ -37,7 +37,8 @@ exports.sigin = catchAsync(async (req, res, next) => {
   }
   // * 2) Check if user exist and password is correect
   const user = await User.findOne({ phoneNumber });
-  if (!user.phoneNumber) {
+
+  if (!user) {
     return next(new ResponseError('Please Enter valid phone number', 401));
   }
 
