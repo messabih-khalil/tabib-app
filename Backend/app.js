@@ -10,7 +10,10 @@ const app = express();
 app.use(express.json());
 
 // Routes
-
+app.use('/api/v1/specialities', require('./src/routes/speciality.routes'));
+app.use('/api/v1/appointments', require('./src/routes/appointment.routes'));
+app.use('/api/v1/doctor/appointments', require('./src/routes/doctorAppointment.routes'));
+app.use('/api/v1/', require('./src/routes/user.routes'));
 
 // Hnadle Unhadled Route
 
