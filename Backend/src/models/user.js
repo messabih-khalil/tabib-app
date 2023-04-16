@@ -1,6 +1,8 @@
 // Imports
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const { catchAsync } = require('../utils/catchAsync');
+const Profile = require('./profile');
 // Create User Schema
 
 const userSchema = mongoose.Schema({
@@ -52,6 +54,30 @@ userSchema.methods.correctPassword = async function (
 ) {
   return await bcrypt.compare(requestPassword, userPassword);
 };
+
+
+
+// Create User Account when a new user is registered
+
+userSchema.pre('save', async function (next) {
+  if (!this.isNew) {
+    // * Don't create a profile if the user already exists
+    return next();
+  }
+
+  try {
+    // * Create a new profile for the user
+    const profile = new Profile({ user: this._id });
+    await profile.save();
+
+    // * Associate the new profile with the user
+    this.profile = profile._id;
+
+    return next();
+  } catch (error) {
+    return next(error);
+  }
+});
 
 // * Create User Model from User Schema
 
