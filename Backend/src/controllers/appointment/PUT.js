@@ -13,7 +13,7 @@ exports.updateAppointment = catchAsync(async (req, res, next) => {
   // * Response
 
   res.status(201).json({
-    status: 'success',
+    success: true,
     data: { appointment },
   });
 });

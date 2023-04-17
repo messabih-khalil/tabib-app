@@ -1,0 +1,11 @@
+☐ get doctors profile by match
+☐ only admin can create speciliaity
+
+
+Appointment : 
+  ☐ restrict to user
+  ☐ only the author of post can remove and update
+  
+Doctor Appointment : 
+  restrict to doctor
+  only the author of post can remove and update

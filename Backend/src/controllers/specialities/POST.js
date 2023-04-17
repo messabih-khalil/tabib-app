@@ -11,7 +11,7 @@ exports.createSpeciality = catchAsync(async (req, res, next) => {
   // * Response
 
   res.status(200).json({
-    status: 'succsess',
+    success: true,
     data: { newSpeciality },
   });
 });

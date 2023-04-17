@@ -1,10 +1,13 @@
 const express = require('express');
 const ResponseError = require('./src/utils/responseError');
 const { errorHandler } = require('./src/middlewares/errorHandler.middleware');
-
+const cors = require('cors');
 // Init app
 
 const app = express();
+
+// Allow requests from all origins (including localhost:port)
+app.use(cors());
 
 // Add middleware to parse incoming JSON data
 app.use(express.json());

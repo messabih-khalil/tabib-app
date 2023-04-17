@@ -11,7 +11,7 @@ exports.getMyProfile = catchAsync(async (req, res, next) => {
 
   // * Response
   res.status(200).json({
-    status: 'succes',
+    success: true,
     data: { profile },
   });
 });
@@ -33,7 +33,7 @@ exports.getDoctorsProfile = catchAsync(async (req, res, next) => {
   // * Response
 
   res.status(200).json({
-    status: 'succes',
+    success: true,
     data: { doctorsProfiles },
   });
 });

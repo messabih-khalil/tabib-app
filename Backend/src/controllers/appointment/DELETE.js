@@ -9,6 +9,6 @@ exports.deleteAppointment = catchAsync(async (req, res, next) => {
   // * Response
 
   res.status(204).json({
-    status: 'success',
+    success: true,
   });
 });

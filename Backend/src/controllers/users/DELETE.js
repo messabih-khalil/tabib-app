@@ -3,12 +3,11 @@ const { catchAsync } = require('../../utils/catchAsync');
 
 // Delete My Account
 exports.deleteMyAccount = catchAsync(async (req, res, next) => {
-  
   // * Get User and deleted
   await User.findByIdAndDelete(req.userId);
 
   res.status(204).json({
-    status: 'success',
+    success: true,
     message: 'Account deleted',
   });
 });

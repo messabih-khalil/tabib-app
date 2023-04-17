@@ -20,7 +20,7 @@ exports.signup = catchAsync(async (req, res, next) => {
 
   // * Response with jwt token
   res.status(201).json({
-    status: 'success',
+    success: true,
     token: token,
   });
 });
@@ -57,7 +57,7 @@ exports.sigin = catchAsync(async (req, res, next) => {
   // * 3) -1 Put user id in request for give grant access to protected route
 
   res.status(200).json({
-    status: 'Success',
+    success: true,
     token: token,
   });
 });
