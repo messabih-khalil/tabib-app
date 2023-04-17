@@ -13,7 +13,7 @@ const sendErrorDev = (err, res) => {
 // Send Error to production
 const sendErrorProd = (err, res) => {
   if (err.isOperational) {
-    res.status(500).json({
+    res.status(err.status).json({
       success: false,
       message: err.message,
     });
@@ -25,7 +25,7 @@ const sendErrorProd = (err, res) => {
 
     res.status(500).json({
       success: false,
-      message: 'Somthing went very Worng!',
+      // message: 'Somthing went very Worng!',
     });
   }
 };
@@ -45,10 +45,8 @@ exports.errorHandler = (err, req, res, next) => {
   }
   // Send Error details to client
   if (process.env.NODE_ENV === 'production') {
-    let error = { ...err };
-
-    if (error.name === 'JsonWebTokenError') error = handleJWTError();
-    if (error.name === 'TokenExpiredError') error = handleExpiredToken();
-    sendErrorProd(error, res);
+    if (err.name === 'JsonWebTokenError') err = handleJWTError();
+    if (err.name === 'TokenExpiredError') err = handleExpiredToken();
+    sendErrorProd(err, res);
   }
 };
