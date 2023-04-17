@@ -1,7 +1,7 @@
 import 'package:app/utils/colors.dart';
 import 'package:app/utils/spaces.dart';
 import 'package:app/widgets/shared/pop_screen.dart';
-import 'package:app/widgets/signin/sigin_form.dart';
+import 'package:app/widgets/signin/signin_form.dart';
 import 'package:flutter/material.dart';
 
 class SigninScreen extends StatelessWidget {
