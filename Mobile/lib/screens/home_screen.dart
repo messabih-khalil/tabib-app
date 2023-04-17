@@ -1,3 +1,5 @@
+import 'package:app/screens/signin_screen.dart';
+import 'package:app/screens/signup_screen.dart';
 import 'package:app/utils/colors.dart';
 import 'package:app/utils/spaces.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +36,9 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).pushNamed(SignupScreen.route);
+                    },
                     child: Container(
                       alignment: Alignment.center,
                       width: double.infinity,
@@ -55,7 +59,9 @@ class HomeScreen extends StatelessWidget {
                     height: 15,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).pushNamed(SigninScreen.route);
+                    },
                     child: Container(
                       alignment: Alignment.center,
                       width: double.infinity,
