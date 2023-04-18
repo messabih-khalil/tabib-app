@@ -20,19 +20,20 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<Auth>(create: (ctx) => Auth()),
       ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
+      child: Consumer<Auth>(
+        builder: (_, auth, __) => MaterialApp(
+          theme: ThemeData(
+            useMaterial3: true,
+          ),
+          title: 'Flutter Demo',
+          home: auth.isAuth ? AppHome() : HomeScreen(),
+          routes: {
+            // '/': (context) => HomeScreen(),
+            SigninScreen.route: (context) => SigninScreen(),
+            SignupScreen.route: (context) => SignupScreen(),
+            AppHome.route: (context) => AppHome(),
+          },
         ),
-        home: const HomeScreen(),
-        routes: {
-          // '/': (context) => HomeScreen(),
-          SigninScreen.route: (context) => SigninScreen(),
-          SignupScreen.route: (context) => SignupScreen(),
-          AppHome.route: (context) => AppHome(),
-        },
       ),
     );
   }
