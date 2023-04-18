@@ -44,7 +44,8 @@ class Auth with ChangeNotifier {
       final responseBody = jsonDecode(response.body);
       // Check if the response status message is valid
       if (!responseBody['success']) {
-        throw HttpException(responseBody['message'] ?? responseBody['message']);
+        throw HttpException(
+            responseBody['message'] ?? 'Phone number already taken');
       }
 
       // 2) Get Token From Response
@@ -55,10 +56,10 @@ class Auth with ChangeNotifier {
 
       // 4) set _token and expired date and userid
 
-      this._token = decodedResponse.token;
+      this._token = decodedResponse['token'];
       this.userid = decodedJwt['id'];
       this.expiredAt =
-          DateTime.now().add(Duration(seconds: int.parse(decodedJwt['exp'])));
+          DateTime.now().add(Duration(seconds: decodedJwt['exp']));
 
       notifyListeners();
     } catch (error) {
