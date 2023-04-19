@@ -1,6 +1,6 @@
 import 'package:app/utils/spaces.dart';
 import 'package:app/widgets/shared/pop_screen.dart';
-import 'package:app/widgets/signup/signup_form.dart';
+import 'package:app/widgets/signup_screen_widgets/signup_form.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatelessWidget {
