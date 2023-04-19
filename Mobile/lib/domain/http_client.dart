@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
-class HttpClient with ChangeNotifier {
+class CustomHttpClient with ChangeNotifier {
   final String? token;
 
-  HttpClient({this.token});
+  CustomHttpClient({this.token});
 
-  static final String _baseUrl = 'https://example.com/api/';
+  static final String _baseUrl = 'http://localhost:8585/api/v1/';
 
   final http.Client _client = http.Client();
 
