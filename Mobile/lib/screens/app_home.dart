@@ -50,7 +50,7 @@ class AppHome extends StatelessWidget {
                 SizedBox(
                   height: 15,
                 ),
-                HomeCategories(),
+                HomeSpecailities(),
                 AllSpecialitiesButton(),
                 SizedBox(
                   height: 5,
