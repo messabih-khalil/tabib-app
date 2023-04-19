@@ -1,8 +1,11 @@
 import 'package:app/providers/auth.dart';
+import 'package:app/providers/specialities.dart';
 import 'package:app/screens/app_home.dart';
 import 'package:app/screens/home_screen.dart';
 import 'package:app/screens/signin_screen.dart';
 import 'package:app/screens/signup_screen.dart';
+import 'package:app/screens/specialities_screen.dart';
+import 'package:app/domain/http_client.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,6 +22,12 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<Auth>(create: (ctx) => Auth()),
+        ChangeNotifierProxyProvider<Auth, CustomHttpClient>(
+          create: (_) => CustomHttpClient(),
+          update: (context, auth, previous) =>
+              CustomHttpClient(token: auth.token),
+        ),
+        ChangeNotifierProvider<Specialities>(create: (_) => Specialities())
       ],
       child: Consumer<Auth>(
         builder: (_, auth, __) => MaterialApp(
@@ -32,6 +41,7 @@ class MyApp extends StatelessWidget {
             SigninScreen.route: (context) => SigninScreen(),
             SignupScreen.route: (context) => SignupScreen(),
             AppHome.route: (context) => AppHome(),
+            SpecialitiesScreen.route: (context) => SpecialitiesScreen()
           },
         ),
       ),
