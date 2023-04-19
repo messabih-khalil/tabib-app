@@ -1,3 +1,3 @@
 class AppSpaces {
-  static const container = 15.0;
+  static const container = 20.0;
 }
