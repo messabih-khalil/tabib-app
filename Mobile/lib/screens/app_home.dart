@@ -1,7 +1,7 @@
 import 'package:app/utils/colors.dart';
 import 'package:app/utils/spaces.dart';
-import 'package:app/widgets/home/all_specialist_button.dart';
-import 'package:app/widgets/home/home_specialist.dart';
+import 'package:app/widgets/home_screen_widgets/all_specialist_button.dart';
+import 'package:app/widgets/home_screen_widgets/home_specialist.dart';
 import 'package:app/widgets/shared/doctor_card.dart';
 import 'package:flutter/material.dart';
 
