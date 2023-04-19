@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class CategoryCard extends StatelessWidget {
-  const CategoryCard({super.key});
+class SpecialityCard extends StatelessWidget {
+  final Map? speciality;
+  const SpecialityCard({this.speciality});
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +13,7 @@ class CategoryCard extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Opacity(
           opacity: 0.3,
-          child: Image.network(
-              'https://cdn-icons-png.flaticon.com/512/45/45495.png'),
+          child: Image.network(speciality!['image']),
         ),
       ),
     );
