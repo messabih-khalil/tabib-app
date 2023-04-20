@@ -58,8 +58,7 @@ class Auth with ChangeNotifier {
 
       this._token = decodedResponse['token'];
       this.userid = decodedJwt['id'];
-      this.expiredAt =
-          DateTime.now().add(Duration(seconds: decodedJwt['exp']));
+      this.expiredAt = DateTime.now().add(Duration(seconds: decodedJwt['exp']));
 
       notifyListeners();
     } catch (error) {
