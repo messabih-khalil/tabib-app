@@ -4,8 +4,14 @@ import 'package:app/domain/http_client.dart';
 import 'package:flutter/foundation.dart';
 
 class Specialities with ChangeNotifier {
-  // Init Http Client
-  final httpClient = CustomHttpClient();
+  final String? token;
+
+  late CustomHttpClient httpClient;
+
+  Specialities({this.token}) {
+    // Init Http Client
+    httpClient = CustomHttpClient(token: token);
+  }
 
   List _specialities = [];
 
@@ -16,7 +22,6 @@ class Specialities with ChangeNotifier {
   Future<void> getSpecialities() async {
     try {
       final response = await httpClient.get('specialities');
-      print(jsonDecode(response.body)['data']['specialities'][0]['image']);
       this._specialities = jsonDecode(response.body)['data']['specialities'];
     } catch (e) {
       throw Exception(e);
