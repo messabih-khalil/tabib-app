@@ -6,14 +6,26 @@ class SpecialityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.white,
-      elevation: 1,
-      child: Container(
-        padding: EdgeInsets.all(20),
-        child: Opacity(
-          opacity: 0.3,
-          child: Image.network(speciality!['image']),
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(
+          context,
+          '/doctors',
+          arguments: {
+            "id" : speciality!['_id'],
+            "title" : speciality!['title'],
+          },
+        );
+      },
+      child: Card(
+        color: Colors.white,
+        elevation: 1,
+        child: Container(
+          padding: EdgeInsets.all(20),
+          child: Opacity(
+            opacity: 0.3,
+            child: Image.network(speciality!['image']),
+          ),
         ),
       ),
     );
