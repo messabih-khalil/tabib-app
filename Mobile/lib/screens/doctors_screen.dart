@@ -29,14 +29,21 @@ class DoctorsScreen extends StatelessWidget {
             future: context.watch<DoctorsProvider>().getDoctors(args['id']),
             builder: (ctx, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator();
+                return Container(
+                    height: MediaQuery.of(context).size.height -
+                        AppBar().preferredSize.height,
+                    width: double.infinity,
+                    alignment: Alignment.center,
+                    child: CircularProgressIndicator());
               }
               return ListView.builder(
                   itemCount: context.watch<DoctorsProvider>().doctors.length,
                   itemBuilder: (ctx, index) {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 10),
-                      child: DoctorCard(doctor : context.watch<DoctorsProvider>().doctors[index]),
+                      child: DoctorCard(
+                          doctor:
+                              context.watch<DoctorsProvider>().doctors[index]),
                     );
                   });
             }),
