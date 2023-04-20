@@ -1,4 +1,5 @@
 import 'package:app/utils/spaces.dart';
+import 'package:app/widgets/bottom_navigation.dart';
 import 'package:app/widgets/specialities_screen_widgets/render_specialites.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,7 @@ class SpecialitiesScreen extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
+      bottomNavigationBar: BottomNavigation(),
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: AppSpaces.container,
