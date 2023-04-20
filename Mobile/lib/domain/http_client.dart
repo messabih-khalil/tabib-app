@@ -11,7 +11,6 @@ class CustomHttpClient with ChangeNotifier {
   final http.Client _client = http.Client();
 
   Future<http.Response> get(String url) async {
-    final token = this.token;
     final headers = {'Authorization': 'Bearer $token'};
     final response =
         await _client.get(Uri.parse(_baseUrl + url), headers: headers);
@@ -27,6 +26,4 @@ class CustomHttpClient with ChangeNotifier {
         headers: headers, body: body);
     return response;
   }
-
-  
 }
