@@ -72,29 +72,6 @@ class AppHome extends StatelessWidget {
                 SizedBox(
                   height: 15,
                 ),
-                Container(
-                  color: Colors.red,
-                  child: FutureBuilder(
-                      future: context.watch<DoctorsProvider>().getAllDoctors(),
-                      builder: (ctx, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return CircularProgressIndicator();
-                        }
-                        return ListView.builder(
-                            itemCount:
-                                context.watch<DoctorsProvider>().doctors.length,
-                            itemBuilder: (ctx, index) {
-                              return Padding(
-                                padding: const EdgeInsets.only(bottom: 10),
-                                child: DoctorCard(
-                                    doctor: context
-                                        .watch<DoctorsProvider>()
-                                        .doctors[index]),
-                              );
-                            });
-                      }),
-                )
               ],
             ),
           ),
