@@ -30,7 +30,7 @@ class AppointmentCard extends StatelessWidget {
                         height: 15,
                       ),
                       Text(
-                        "22 dec 2023",
+                        "21 apr 2023",
                         style: TextStyle(color: AppColors.lightGreyColor),
                       ),
                       SizedBox(
@@ -78,7 +78,7 @@ class AppointmentCard extends StatelessWidget {
                         height: 15,
                       ),
                       Text(
-                        "Dr. Messabih",
+                        "Dr. khalil",
                         style: TextStyle(color: AppColors.lightGreyColor),
                       ),
                       SizedBox(
